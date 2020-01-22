@@ -35,6 +35,7 @@ describe('coerce object param - required', function() {
     test(REQUIRED_ANY_OBJECT, {key: 'undefined'}, {key: 'undefined'});
     test(REQUIRED_ANY_OBJECT, {key: 'null'}, {key: 'null'});
     test(REQUIRED_ANY_OBJECT, {key: 'text'}, {key: 'text'});
+    test(REQUIRED_ANY_OBJECT, '{include: \'value\' }', {include: 'value'});
   });
 
   context('empty values trigger ERROR_BAD_REQUEST', () => {

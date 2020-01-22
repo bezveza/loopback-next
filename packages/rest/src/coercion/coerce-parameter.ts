@@ -34,9 +34,9 @@ export function coerceParameter(
 ) {
   let schema = spec.schema;
 
-  if (!schema && spec.content) {
-    const content = spec.content;
-    const jsonSpec = content['application/json'];
+  // If a query parameter is a url encoded Json object, the schema is defined under content['application/json']
+  if (!schema && spec.in === 'query' && spec.content) {
+    const jsonSpec = spec.content['application/json'];
     schema = jsonSpec.schema;
   }
 
